@@ -1,0 +1,44 @@
+
+  <header>
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+    <center>
+      <h1 class="display-4">THE FUCKING GOSSIP PROJECT BY THP</h1>
+      <h3>Bienvenue à toi la mocheté !!!</h3>
+      <img src="https://images.uncyc.org/pt/thumb/2/26/4697.jpg/200px-4697.jpg">
+      <h4>Ici, c'est carte blanche, on va voir à quel point tu aimes balancer des cochonneries !</h4>
+      <br>
+      <h5>Voici les dernières dégueulasseries : </h5>  
+      </center>
+    </div>
+  </div>
+
+  <body>
+  <br>
+  </header>
+
+    <body>
+    <div class="row m-1">
+      <% @gossips.each_with_index do |gossip, index| %>
+        <div class = "col d-flex align-items-top">
+          <div class="card mb-3 p-3" style="width: 20rem;">
+            <div class="card-body">
+              <h5 class="card-title">Fucking gossip <%= index + 1%> : "<%= gossip.title %>"</h5>
+              <p class="card-text ">Gogole : <%= gossip.user.first_name %> <%= gossip.user.last_name %></p>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Date de création : <br/> <%= gossip.created_at.strftime("%d-%m-%y -%H:%M:%S") %></li>
+                <li class="list-group-item">Nombre de merdes qu'il a créé : <%= gossip.user.gossips.count %></li>
+                <li class="list-group-item">Nombre de commentaires sur cette connerie : <%= gossip.comments.count %></li>
+                <p> </p>
+              </ul>
+            <div class="btn btn-warning">
+                <%= link_to "Détail du potin", gossip_path(gossip), style: 'color:black' %>
+            </div>
+          </div>
+        </div>
+    </div>
+      <% end %>
+  </div>
+</body>
+

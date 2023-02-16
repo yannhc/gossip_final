@@ -1,0 +1,36 @@
+<header>
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+  <div class="container">
+  <center>
+    <h1 class="display-4">Balances ta connerie!</h1>
+    <h3>Fais toi plaisir nunuche, ça doit pas t'arriver souvent</h3>
+    </center>
+  </div>
+</div>
+<body>
+
+<center>
+<% flash.each do |name, msg| %>
+  <div class="alert alert-danger" role="alert"> <%= msg %> </div>
+<% end %>
+
+<%# Form_tag %>
+<%= form_tag url_for(action: 'create'), method: "post" do %>
+
+  <%= label_tag 'Fucking title :' %>
+  <%= text_field_tag 'title', @gossip.title %>
+  <br /> <br />
+
+  <%= label_tag 'Son contenu :' %>
+  <%= text_field_tag 'content', @gossip.content %>
+  <br /> <br />
+
+  <%= submit_tag "Création d'une nouvelle daube" %>
+<% end %>
+<br>
+<br>
+<img src="https://koureisya-blog.info/wp-content/uploads/2017/08/kot-2508858_1280-246x200.jpg">
+</center>
+
+</header>

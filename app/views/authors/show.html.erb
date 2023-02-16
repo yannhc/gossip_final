@@ -1,0 +1,33 @@
+<center>
+
+
+<header>
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+  <div class="container">
+  <center>
+    <h1 class="display-4">Mais qui est ce relou qui à pondu ça?</h1>
+    <h5>Le voici : </h5>  
+    </center>
+  </div>
+</div>
+<body>
+<br>
+</header>
+
+
+<h3>L'auteur en question : <%=@author.first_name%> <%= @author.last_name %></h3>
+  <p>Sa bio : <%=@author.description%></p>
+  <p>Tu veux t'expliquer avec ? : <%=@author.email%></p>
+  <p>Nombre de balais : <%=@author.age%></p>
+  <p> Sa ville : <a href= "<%=city_path(@author.city.id)%>"><%=@author.city.name%></a></p>     
+  <p>Nombre de vomis : <%= @author.gossips.count %> </p>
+
+
+<br>
+<h4>Retrouves tous ses potins :<% @author.gossips.each do |gossip| %></h4>
+
+  <p> <%=gossip.title%> -> <%= link_to "clique ici ducon", gossip_path(gossip) %>  </p>
+</ul>
+<% end %>
+</center>

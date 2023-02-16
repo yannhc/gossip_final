@@ -1,0 +1,45 @@
+
+<header>
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+  <div class="container">
+  <center>
+    <h1 class="display-4">Nos écervelés d'auteurs</h1>
+    <h4>Ici, tu trouveras la liste de tous les teuteus qui ont balancé des cochonneries !</h4>
+    <br>
+    <br>
+    <br>
+    <h5>Les voici : </h5>  
+    </center>
+  </div>
+</div>
+<body>
+<br>
+</header>
+
+<div class="m-4"></div>
+  <div class="container border border-secondary"> 
+    <div class="row border border-secondary fw-bold">
+        <div class="col-5">Le gogole</div>    
+        <div class="col-5">Sa ville</div>         
+        <div class="col-2">Nombre de cochonneries</div>
+    </div>
+
+
+    <% @authors.each_with_index do |author, index| %> 
+                          
+        <div class="row border border-light">
+            <div class="col-5"><a href= "<%=author_path(author.id)%>"><%=author.first_name%> <%=author.last_name%></a></div>            
+            <div class="col-5"><a href= "<%=city_path(author.city.id)%>"><%=author.city.name%></a></div>
+            <div class="col-2"><%=author.gossips.count%></div>         
+        </div>
+
+    <% end %>
+  </div>
+
+  <div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action list-group-item-light">Liste des auteurs</a>
+
+  <% @authors.each_with_index do |author, index| %> 
+    <a href="#" class="list-group-item list-group-item-action list-group-item-light"> Auteur <%=index%> : <%=author.first_name%> <%=author.last_name%>     -    <%=author.gossips.count%> Gossips    -     Ville d'origine : <%=author.city.name%></a>
+  <% end %>
